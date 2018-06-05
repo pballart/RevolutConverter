@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0294691F433153AD631168A2 /* Pods_RevolutConverterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B554C71C82EEDC04FB80B94 /* Pods_RevolutConverterTests.framework */; };
+		4FAEDE704E9B4D419677FCD6 /* Pods_RevolutConverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1AB67208F30B1937EE527BB /* Pods_RevolutConverter.framework */; };
 		5F03081320C6F4D90058181E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03081220C6F4D90058181E /* AppDelegate.swift */; };
 		5F03081520C6F4D90058181E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03081420C6F4D90058181E /* ViewController.swift */; };
 		5F03081820C6F4D90058181E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F03081620C6F4D90058181E /* Main.storyboard */; };
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2519FE4B3280797CD050A6B0 /* Pods-RevolutConverter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverter.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverter/Pods-RevolutConverter.release.xcconfig"; sourceTree = "<group>"; };
 		5F03080F20C6F4D90058181E /* RevolutConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F03081220C6F4D90058181E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F03081420C6F4D90058181E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +39,11 @@
 		5F03082320C6F4DB0058181E /* RevolutConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevolutConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F03082720C6F4DB0058181E /* RevolutConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutConverterTests.swift; sourceTree = "<group>"; };
 		5F03082920C6F4DB0058181E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B554C71C82EEDC04FB80B94 /* Pods_RevolutConverterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutConverterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEC56A7B158D087464E8B0F0 /* Pods-RevolutConverterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverterTests/Pods-RevolutConverterTests.release.xcconfig"; sourceTree = "<group>"; };
+		B2F7AF9DFCA9CE2C274656E7 /* Pods-RevolutConverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverter/Pods-RevolutConverter.debug.xcconfig"; sourceTree = "<group>"; };
+		C1AB67208F30B1937EE527BB /* Pods_RevolutConverter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutConverter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E70763916A4432BD041093E6 /* Pods-RevolutConverterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverterTests/Pods-RevolutConverterTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FAEDE704E9B4D419677FCD6 /* Pods_RevolutConverter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +59,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0294691F433153AD631168A2 /* Pods_RevolutConverterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BDD57ABD0761C12B394ACAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB67208F30B1937EE527BB /* Pods_RevolutConverter.framework */,
+				6B554C71C82EEDC04FB80B94 /* Pods_RevolutConverterTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5F03080620C6F4D90058181E = {
 			isa = PBXGroup;
 			children = (
 				5F03081120C6F4D90058181E /* RevolutConverter */,
 				5F03082620C6F4DB0058181E /* RevolutConverterTests */,
 				5F03081020C6F4D90058181E /* Products */,
+				9DC9691A7F345BE7660BBB30 /* Pods */,
+				3BDD57ABD0761C12B394ACAF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +117,17 @@
 			path = RevolutConverterTests;
 			sourceTree = "<group>";
 		};
+		9DC9691A7F345BE7660BBB30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2F7AF9DFCA9CE2C274656E7 /* Pods-RevolutConverter.debug.xcconfig */,
+				2519FE4B3280797CD050A6B0 /* Pods-RevolutConverter.release.xcconfig */,
+				E70763916A4432BD041093E6 /* Pods-RevolutConverterTests.debug.xcconfig */,
+				AEC56A7B158D087464E8B0F0 /* Pods-RevolutConverterTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F03082C20C6F4DB0058181E /* Build configuration list for PBXNativeTarget "RevolutConverter" */;
 			buildPhases = (
+				9C1AA219B322A86BA02F082D /* [CP] Check Pods Manifest.lock */,
 				5F03080B20C6F4D90058181E /* Sources */,
 				5F03080C20C6F4D90058181E /* Frameworks */,
 				5F03080D20C6F4D90058181E /* Resources */,
+				6A014A8112A7CD692CE24D4B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,6 +154,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F03082F20C6F4DB0058181E /* Build configuration list for PBXNativeTarget "RevolutConverterTests" */;
 			buildPhases = (
+				F4C9702FF8521B7271D62AA6 /* [CP] Check Pods Manifest.lock */,
 				5F03081F20C6F4DB0058181E /* Sources */,
 				5F03082020C6F4DB0058181E /* Frameworks */,
 				5F03082120C6F4DB0058181E /* Resources */,
@@ -191,6 +226,71 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A014A8112A7CD692CE24D4B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RevolutConverter/Pods-RevolutConverter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RevolutConverter/Pods-RevolutConverter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C1AA219B322A86BA02F082D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RevolutConverter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4C9702FF8521B7271D62AA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RevolutConverterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5F03080B20C6F4D90058181E /* Sources */ = {
@@ -356,15 +456,13 @@
 		};
 		5F03082D20C6F4DB0058181E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2F7AF9DFCA9CE2C274656E7 /* Pods-RevolutConverter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZTB5S386Z;
 				INFOPLIST_FILE = RevolutConverter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pballart.RevolutConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -374,15 +472,13 @@
 		};
 		5F03082E20C6F4DB0058181E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2519FE4B3280797CD050A6B0 /* Pods-RevolutConverter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZTB5S386Z;
 				INFOPLIST_FILE = RevolutConverter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pballart.RevolutConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -392,17 +488,14 @@
 		};
 		5F03083020C6F4DB0058181E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E70763916A4432BD041093E6 /* Pods-RevolutConverterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZTB5S386Z;
 				INFOPLIST_FILE = RevolutConverterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pballart.RevolutConverterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -413,17 +506,14 @@
 		};
 		5F03083120C6F4DB0058181E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEC56A7B158D087464E8B0F0 /* Pods-RevolutConverterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZTB5S386Z;
 				INFOPLIST_FILE = RevolutConverterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pballart.RevolutConverterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

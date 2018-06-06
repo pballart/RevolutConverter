@@ -55,7 +55,7 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
             let indexPathsToUpdate = visibleIndexPaths.filter { (indexPath) -> Bool in
                 return indexPath != IndexPath(row: 0, section: 0)
             }
-            tableView.reloadRows(at: indexPathsToUpdate, with: .automatic)
+            tableView.reloadRows(at: indexPathsToUpdate, with: .none)
         }
     }
 }

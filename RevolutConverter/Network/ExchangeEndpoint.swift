@@ -8,7 +8,6 @@
 
 import Foundation
 import Moya
-import RxSwift
 
 enum ExchangeEndpoint {
     case exchangeRate(baseCurrency: String)
@@ -50,7 +49,47 @@ extension ExchangeEndpoint: TargetType {
     var sampleData: Data {
         switch self {
         case .exchangeRate:
-            return Data()
+            let sampleRespone = """
+                                {
+                                    "base": "EUR",
+                                    "date": "2018-06-05",
+                                    "rates": {
+                                        "AUD": 1.5314,
+                                        "BGN": 1.9531,
+                                        "BRL": 4.3865,
+                                        "CAD": 1.5137,
+                                        "CHF": 1.1499,
+                                        "CNY": 7.4666,
+                                        "CZK": 25.617,
+                                        "DKK": 7.4322,
+                                        "GBP": 0.87269,
+                                        "HKD": 9.1484,
+                                        "HRK": 7.3728,
+                                        "HUF": 318.24,
+                                        "IDR": 16186.0,
+                                        "ILS": 4.1685,
+                                        "INR": 78.289,
+                                        "ISK": 123.33,
+                                        "JPY": 127.9,
+                                        "KRW": 1248.6,
+                                        "MXN": 23.764,
+                                        "MYR": 4.6459,
+                                        "NOK": 9.4876,
+                                        "NZD": 1.6613,
+                                        "PHP": 61.138,
+                                        "PLN": 4.2827,
+                                        "RON": 4.6461,
+                                        "RUB": 72.715,
+                                        "SEK": 10.236,
+                                        "SGD": 1.5571,
+                                        "THB": 37.285,
+                                        "TRY": 5.3782,
+                                        "USD": 1.1659,
+                                        "ZAR": 14.802
+                                    }
+                                }
+                                """
+            return sampleRespone.utf8Encoded
         }
     }
     
@@ -65,5 +104,10 @@ extension ExchangeEndpoint: TargetType {
         return [:]
     }
     
-    
+}
+
+private extension String {
+    var utf8Encoded: Data {
+        return data(using: .utf8)!
+    }
 }

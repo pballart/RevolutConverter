@@ -8,13 +8,34 @@
 
 import Foundation
 import Moya
-import RxSwift
+import Result
 
 class ExchangeService {
-    let disposeBag = DisposeBag()
-    let exchangeProvider: MoyaProvider<ExchangeEndpoint>.CompatibleType
+    let exchangeProvider: MoyaProvider<ExchangeEndpoint>
     
-    init() {
-        exchangeProvider = MoyaProvider<ExchangeEndpoint>()
+    init(provider: MoyaProvider<ExchangeEndpoint>) {
+        exchangeProvider = provider
+    }
+    
+    func getExchangeRate(baseCurrency: Currency, onResult: @escaping (_ result: Result<ExchangeDTO, NetworkError> )-> Void) {
+        exchangeProvider.request(.exchangeRate(baseCurrency: baseCurrency.code)) { (result) in
+            switch result {
+            case let .success(moyaResponse):
+                do {
+                    _ = try moyaResponse.filterSuccessfulStatusCodes()
+                    let decoder = JSONDecoder()
+                    let exchangeData = try decoder.decode(ExchangeDTO.self, from: moyaResponse.data)
+                    onResult(.success(exchangeData))
+                }
+                catch MoyaError.statusCode {
+                    onResult(.failure(NetworkError.serverInternalError))
+                }
+                catch {
+                    onResult(.failure(NetworkError.responseFormatError))
+                }
+            case let .failure(error):
+                onResult(.failure(NetworkError.translateError(error)))
+            }
+        }
     }
 }

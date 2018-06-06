@@ -17,7 +17,7 @@ struct Currency: Equatable {
     }
     
     static func eurCurrency() -> Currency {
-        return Currency(code: "EUR")
+        return Currency(code: "EUR", rate: 1)
     }
     
     init(code: String) {

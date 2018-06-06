@@ -22,13 +22,41 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XuU-cJ-XGJ">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CurrencyConverterTableViewCell" rowHeight="70" id="XuU-cJ-XGJ" customClass="CurrencyConverterTableViewCell" customModule="RevolutConverter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XuU-cJ-XGJ" id="jQx-7X-tYE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mp7-0q-l1b">
+                                                    <rect key="frame" x="261" y="19" width="99" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="99" id="hqH-Ci-HQp"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXx-Yx-4nH">
+                                                    <rect key="frame" x="15" y="24" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VXx-Yx-4nH" firstAttribute="leading" secondItem="jQx-7X-tYE" secondAttribute="leading" constant="15" id="1pO-nR-uBp"/>
+                                                <constraint firstItem="Mp7-0q-l1b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VXx-Yx-4nH" secondAttribute="trailing" constant="20" id="Dlx-Ie-os0"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mp7-0q-l1b" secondAttribute="trailing" constant="15" id="Lfc-Hv-Hfg"/>
+                                                <constraint firstItem="Mp7-0q-l1b" firstAttribute="centerY" secondItem="jQx-7X-tYE" secondAttribute="centerY" id="s6T-fa-oIc"/>
+                                                <constraint firstItem="VXx-Yx-4nH" firstAttribute="centerY" secondItem="jQx-7X-tYE" secondAttribute="centerY" id="xkB-9w-Zkr"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="currencyCode" destination="VXx-Yx-4nH" id="3qp-R6-fNn"/>
+                                            <outlet property="rateTextField" destination="Mp7-0q-l1b" id="q9b-Yo-NiJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

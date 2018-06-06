@@ -28,6 +28,8 @@
 		5F2BAEA420C8120800B88E5F /* CurrencyConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEA320C8120800B88E5F /* CurrencyConverterPresenter.swift */; };
 		5F2BAEA620C8179B00B88E5F /* CurrencyConverterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEA520C8179B00B88E5F /* CurrencyConverterProvider.swift */; };
 		5F2BAEA820C81F0F00B88E5F /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEA720C81F0F00B88E5F /* ExchangeRate.swift */; };
+		5F2BAED120C83F3900B88E5F /* CurrencyConverterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAED020C83F3900B88E5F /* CurrencyConverterTableViewCell.swift */; };
+		5F2BAED520C840F600B88E5F /* CurrencyConverterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAED420C840F600B88E5F /* CurrencyConverterTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		5F2BAEA320C8120800B88E5F /* CurrencyConverterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterPresenter.swift; sourceTree = "<group>"; };
 		5F2BAEA520C8179B00B88E5F /* CurrencyConverterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterProvider.swift; sourceTree = "<group>"; };
 		5F2BAEA720C81F0F00B88E5F /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		5F2BAED020C83F3900B88E5F /* CurrencyConverterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTableViewCell.swift; sourceTree = "<group>"; };
+		5F2BAED420C840F600B88E5F /* CurrencyConverterTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTableViewDataSource.swift; sourceTree = "<group>"; };
 		6B554C71C82EEDC04FB80B94 /* Pods_RevolutConverterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutConverterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC56A7B158D087464E8B0F0 /* Pods-RevolutConverterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverterTests/Pods-RevolutConverterTests.release.xcconfig"; sourceTree = "<group>"; };
 		B2F7AF9DFCA9CE2C274656E7 /* Pods-RevolutConverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverter/Pods-RevolutConverter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,9 +124,10 @@
 			isa = PBXGroup;
 			children = (
 				5F03081220C6F4D90058181E /* AppDelegate.swift */,
-				5F03081420C6F4D90058181E /* CurrencyConverterView.swift */,
 				5F2BAEA320C8120800B88E5F /* CurrencyConverterPresenter.swift */,
 				5F2BAEA520C8179B00B88E5F /* CurrencyConverterProvider.swift */,
+				5F2BAED420C840F600B88E5F /* CurrencyConverterTableViewDataSource.swift */,
+				5F2BAECF20C83F1200B88E5F /* View */,
 				5F03083B20C7BECF0058181E /* Model */,
 				5F03083420C6F7A80058181E /* Network */,
 				5F03081620C6F4D90058181E /* Main.storyboard */,
@@ -160,6 +165,15 @@
 				5F2BAEA720C81F0F00B88E5F /* ExchangeRate.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5F2BAECF20C83F1200B88E5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F03081420C6F4D90058181E /* CurrencyConverterView.swift */,
+				5F2BAED020C83F3900B88E5F /* CurrencyConverterTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9DC9691A7F345BE7660BBB30 /* Pods */ = {
@@ -362,6 +376,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F2BAEA420C8120800B88E5F /* CurrencyConverterPresenter.swift in Sources */,
+				5F2BAED120C83F3900B88E5F /* CurrencyConverterTableViewCell.swift in Sources */,
+				5F2BAED520C840F600B88E5F /* CurrencyConverterTableViewDataSource.swift in Sources */,
 				5F03083A20C6FC460058181E /* ExchangeService.swift in Sources */,
 				5F2BAEA620C8179B00B88E5F /* CurrencyConverterProvider.swift in Sources */,
 				5F03084520C7C64A0058181E /* NetworkError.swift in Sources */,

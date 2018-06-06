@@ -16,7 +16,7 @@ class CurrencyConverterView: UIViewController, CurrencyConverterViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = CurrencyConverterPresenter(provider: CurrencyConverterProvider(), view: self)
-        presenter.viewDidLoad()
+        presenter.viewDidLoad(tableView: tableView)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

@@ -9,14 +9,16 @@
 import Foundation
 
 struct ExchangeRate {
-    let base: String
-    let rates: [Currency]
+    var base: String
+    var rates: [Currency]
     
     init(dto: ExchangeDTO) {
         self.base = dto.base
-        self.rates = dto.rates.map({ (key, value) -> Currency in
+        var serverRates = dto.rates.map({ (key, value) -> Currency in
             return Currency(code: key, rate: value)
         })
+        serverRates.append(Currency(code: dto.base, rate: 1))
+        self.rates = serverRates
     }
 }
 

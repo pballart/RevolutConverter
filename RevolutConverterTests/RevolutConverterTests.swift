@@ -23,7 +23,7 @@ class RevolutConverterTests: XCTestCase {
     }
     
     func testAPICallSucceeds() {
-        let eurCurrency = Currency(code: "EUR")
+        let eurCurrency = Currency.eurCurrency()
         let stubbingProvider = MoyaProvider<ExchangeEndpoint>(stubClosure: MoyaProvider.immediatelyStub)
         let service = ExchangeService.init(provider: stubbingProvider)
         
@@ -46,8 +46,8 @@ class RevolutConverterTests: XCTestCase {
     }
     
     func testAPICallFails() {
-        let eurCurrency = Currency(code: "EUR")
-        
+        let eurCurrency = Currency.eurCurrency()
+
         let endpointClosure = { (target: ExchangeEndpoint) -> Endpoint in
             return Endpoint(url: target.baseURL.absoluteString, sampleResponseClosure: {.networkResponse(500, target.sampleData)}, method: target.method, task: target.task, httpHeaderFields: target.headers)
         }

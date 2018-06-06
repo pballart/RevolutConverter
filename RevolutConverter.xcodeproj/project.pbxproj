@@ -10,7 +10,7 @@
 		0294691F433153AD631168A2 /* Pods_RevolutConverterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B554C71C82EEDC04FB80B94 /* Pods_RevolutConverterTests.framework */; };
 		4FAEDE704E9B4D419677FCD6 /* Pods_RevolutConverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1AB67208F30B1937EE527BB /* Pods_RevolutConverter.framework */; };
 		5F03081320C6F4D90058181E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03081220C6F4D90058181E /* AppDelegate.swift */; };
-		5F03081520C6F4D90058181E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03081420C6F4D90058181E /* ViewController.swift */; };
+		5F03081520C6F4D90058181E /* CurrencyConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03081420C6F4D90058181E /* CurrencyConverterView.swift */; };
 		5F03081820C6F4D90058181E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F03081620C6F4D90058181E /* Main.storyboard */; };
 		5F03081A20C6F4DB0058181E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F03081920C6F4DB0058181E /* Assets.xcassets */; };
 		5F03081D20C6F4DB0058181E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F03081B20C6F4DB0058181E /* LaunchScreen.storyboard */; };
@@ -25,6 +25,8 @@
 		5F03084320C7C2920058181E /* ExchangeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03083E20C7C00B0058181E /* ExchangeDTO.swift */; };
 		5F03084520C7C64A0058181E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03084420C7C64A0058181E /* NetworkError.swift */; };
 		5F2BAE9420C7D9B400B88E5F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03084420C7C64A0058181E /* NetworkError.swift */; };
+		5F2BAEA420C8120800B88E5F /* CurrencyConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEA320C8120800B88E5F /* CurrencyConverterPresenter.swift */; };
+		5F2BAEA620C8179B00B88E5F /* CurrencyConverterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEA520C8179B00B88E5F /* CurrencyConverterProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,7 @@
 		2519FE4B3280797CD050A6B0 /* Pods-RevolutConverter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverter.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverter/Pods-RevolutConverter.release.xcconfig"; sourceTree = "<group>"; };
 		5F03080F20C6F4D90058181E /* RevolutConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F03081220C6F4D90058181E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5F03081420C6F4D90058181E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5F03081420C6F4D90058181E /* CurrencyConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterView.swift; sourceTree = "<group>"; };
 		5F03081720C6F4D90058181E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F03081920C6F4DB0058181E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F03081C20C6F4DB0058181E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +56,8 @@
 		5F03083C20C7BEEC0058181E /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		5F03083E20C7C00B0058181E /* ExchangeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDTO.swift; sourceTree = "<group>"; };
 		5F03084420C7C64A0058181E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		5F2BAEA320C8120800B88E5F /* CurrencyConverterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterPresenter.swift; sourceTree = "<group>"; };
+		5F2BAEA520C8179B00B88E5F /* CurrencyConverterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterProvider.swift; sourceTree = "<group>"; };
 		6B554C71C82EEDC04FB80B94 /* Pods_RevolutConverterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutConverterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC56A7B158D087464E8B0F0 /* Pods-RevolutConverterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverterTests/Pods-RevolutConverterTests.release.xcconfig"; sourceTree = "<group>"; };
 		B2F7AF9DFCA9CE2C274656E7 /* Pods-RevolutConverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverter/Pods-RevolutConverter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,7 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				5F03081220C6F4D90058181E /* AppDelegate.swift */,
-				5F03081420C6F4D90058181E /* ViewController.swift */,
+				5F03081420C6F4D90058181E /* CurrencyConverterView.swift */,
+				5F2BAEA320C8120800B88E5F /* CurrencyConverterPresenter.swift */,
+				5F2BAEA520C8179B00B88E5F /* CurrencyConverterProvider.swift */,
 				5F03083B20C7BECF0058181E /* Model */,
 				5F03083420C6F7A80058181E /* Network */,
 				5F03081620C6F4D90058181E /* Main.storyboard */,
@@ -352,10 +358,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F2BAEA420C8120800B88E5F /* CurrencyConverterPresenter.swift in Sources */,
 				5F03083A20C6FC460058181E /* ExchangeService.swift in Sources */,
+				5F2BAEA620C8179B00B88E5F /* CurrencyConverterProvider.swift in Sources */,
 				5F03084520C7C64A0058181E /* NetworkError.swift in Sources */,
 				5F03083D20C7BEEC0058181E /* Currency.swift in Sources */,
-				5F03081520C6F4D90058181E /* ViewController.swift in Sources */,
+				5F03081520C6F4D90058181E /* CurrencyConverterView.swift in Sources */,
 				5F03081320C6F4D90058181E /* AppDelegate.swift in Sources */,
 				5F03083F20C7C00B0058181E /* ExchangeDTO.swift in Sources */,
 				5F03083820C6FC330058181E /* ExchangeEndpoint.swift in Sources */,
@@ -527,7 +535,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 887XBWP9ER;
 				INFOPLIST_FILE = RevolutConverter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SolArtApps.RevolutConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -543,7 +554,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 887XBWP9ER;
 				INFOPLIST_FILE = RevolutConverter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SolArtApps.RevolutConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -560,7 +574,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZTB5S386Z;
 				INFOPLIST_FILE = RevolutConverterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pballart.RevolutConverterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -578,7 +596,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZTB5S386Z;
 				INFOPLIST_FILE = RevolutConverterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pballart.RevolutConverterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

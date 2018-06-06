@@ -10,7 +10,11 @@ import Foundation
 import Moya
 import Result
 
-class ExchangeService {
+protocol ExchangeServiceProtocol {
+    func getExchangeRate(baseCurrency: Currency, onResult: @escaping (_ result: Result<ExchangeDTO, NetworkError> )-> Void)
+}
+
+class ExchangeService: ExchangeServiceProtocol {
     let exchangeProvider: MoyaProvider<ExchangeEndpoint>
     
     init(provider: MoyaProvider<ExchangeEndpoint>) {

@@ -14,4 +14,8 @@ struct Currency: Equatable {
     public static func == (lhs: Currency, rhs: Currency) -> Bool {
         return lhs.code == rhs.code
     }
+    
+    static func eurCurrency() -> Currency {
+        return Currency(code: "EUR")
+    }
 }

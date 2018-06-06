@@ -48,7 +48,6 @@ class ConverterDataSource: NSObject, UITableViewDataSource {
 
 extension ConverterDataSource: CurrencyConverterCellDelegate {
     func didUpdate(amount: Float) {
-        print("Changing amount to: \(amount)")
         presenter?.didChange(amount: amount)
     }
     
@@ -56,6 +55,7 @@ extension ConverterDataSource: CurrencyConverterCellDelegate {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         if indexPath.row != 0 {
             //TODO: fire a notifications that the presenter will listen to make the row go up
+            //Or use presenter protocol
         }
     }
 }

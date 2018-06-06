@@ -44,14 +44,13 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
         provider.stopFetchingExchangeRates()
     }
     
-    
     func didChange(amount: Float) {
-        guard let data = dataSource.data else {
-            return
-        }
-        
+        guard let data = dataSource.data else { return }
         dataSource.data = provider.updateCurrencies(currencies: data, fromCurrency: data.first!, with: amount)
-        
+        updateTableViewCells()
+    }
+    
+    private func updateTableViewCells() {
         if let visibleIndexPaths = tableView.indexPathsForVisibleRows {
             let indexPathsToUpdate = visibleIndexPaths.filter { (indexPath) -> Bool in
                 return indexPath != IndexPath(row: 0, section: 0)
@@ -59,18 +58,21 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
             tableView.reloadRows(at: indexPathsToUpdate, with: .automatic)
         }
     }
-    
 }
 
 extension CurrencyConverterPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard var exchangeRate = dataSource.data else { return }
-        exchangeRate.swapAt(indexPath.row, 0)
+        let removedRate = exchangeRate.remove(at: indexPath.row)
+        exchangeRate.insert(removedRate, at: 0)
         dataSource.data = exchangeRate
+        
         let zeroIndexPath = IndexPath(row: 0, section: 0)
         tableView.performBatchUpdates({
             tableView.moveRow(at: indexPath, to: zeroIndexPath)
-            tableView.moveRow(at: zeroIndexPath, to: indexPath)
+            for index in 0..<indexPath.row {
+                tableView.moveRow(at: IndexPath(row: index, section: 0), to: IndexPath(row: index+1, section: 0))
+            }
         }, completion: nil)
         
         tableView.scrollToRow(at: zeroIndexPath, at: .top, animated: true)
@@ -87,12 +89,6 @@ extension CurrencyConverterPresenter: CurrencyConverterProviderDelegate {
             return
         }
         dataSource.data = provider.updateCurrencies(currencies: data, fromCurrency: data.first!, with: data.first!.rate)
-        
-        if let visibleIndexPaths = tableView.indexPathsForVisibleRows {
-            let indexPathsToUpdate = visibleIndexPaths.filter { (indexPath) -> Bool in
-                return indexPath != IndexPath(row: 0, section: 0)
-            }
-            tableView.reloadRows(at: indexPathsToUpdate, with: .automatic)
-        }
+        updateTableViewCells()
     }
 }

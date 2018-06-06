@@ -22,15 +22,8 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
     fileprivate weak var view: CurrencyConverterViewProtocol!
     fileprivate var provider: CurrencyConverterProviderProtocol!
     
-    var tableView: UITableView?
+    var tableView: UITableView!
     var dataSource: ConverterDataSource!
-    
-    var exchangeRate: ExchangeRate? {
-        didSet {
-            print("exchange rate updated")
-            transformNewRateForDataSource()
-        }
-    }
     
     init(provider: CurrencyConverterProviderProtocol,
          view: CurrencyConverterViewProtocol) {
@@ -41,7 +34,7 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
     func viewDidLoad(tableView: UITableView) {
         self.tableView = tableView
         dataSource = ConverterDataSource(tableView: tableView)
-        self.tableView?.delegate = self
+        self.tableView.delegate = self
         provider.injectDelegate(self)
         provider.startFetchingExchangeRates(baseCurrency: Currency.eurCurrency())
     }
@@ -50,25 +43,19 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
         provider.stopFetchingExchangeRates()
     }
     
-    private func transformNewRateForDataSource() {
-        if dataSource.data == nil {
-            dataSource.data = exchangeRate
-        } else {
-            
-        }
-    }
 }
 
 extension CurrencyConverterPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let selectedCurrency = exchangeRate?.rates.remove(at: indexPath.row) else { return }
-        exchangeRate?.rates.insert(selectedCurrency, at: 0)
+        guard var exchangeRate = dataSource.data else { return }
+        exchangeRate.rates.swapAt(indexPath.row, 0)
         dataSource.data = exchangeRate
-        tableView.beginUpdates()
         let zeroIndexPath = IndexPath(row: 0, section: 0)
-        tableView.moveRow(at: indexPath, to: zeroIndexPath)
-        tableView.moveRow(at: zeroIndexPath, to: indexPath)
-        tableView.endUpdates()
+        tableView.performBatchUpdates({
+            tableView.moveRow(at: indexPath, to: zeroIndexPath)
+            tableView.moveRow(at: zeroIndexPath, to: indexPath)
+        }, completion: nil)
+        
         tableView.scrollToRow(at: zeroIndexPath, at: .top, animated: true)
         guard let cell = tableView.cellForRow(at: zeroIndexPath) as? CurrencyConverterTableViewCell else { return }
         cell.rateTextField.becomeFirstResponder()
@@ -76,7 +63,24 @@ extension CurrencyConverterPresenter: UITableViewDelegate {
 }
 
 extension CurrencyConverterPresenter: CurrencyConverterProviderDelegate {
-    func didReceiveNewExchangeRate(rate: ExchangeRate) {
-        self.exchangeRate = rate
+    func didReceiveNewExchangeRate(rateDTO: ExchangeDTO) {
+        guard var data = dataSource.data else {
+            let exchangeRate = ExchangeRate(dto: rateDTO)
+            dataSource.data = exchangeRate
+            return
+        }
+        for (index, rate) in data.rates.enumerated() where rate.code != "EUR" {
+            guard let newRate = rateDTO.rates[rate.code] else { return }
+            let updatedCurrency = Currency(code: rate.code, rate: newRate)
+            data.rates[index] = updatedCurrency
+        }
+        dataSource.data = data
+        
+        if let visibleIndexPaths = tableView.indexPathsForVisibleRows {
+            let indexPathsToUpdate = visibleIndexPaths.filter { (indexPath) -> Bool in
+                return indexPath != IndexPath(row: 0, section: 0)
+            }
+            tableView.reloadRows(at: indexPathsToUpdate, with: .automatic)
+        }
     }
 }

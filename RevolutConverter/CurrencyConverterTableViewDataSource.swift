@@ -34,13 +34,11 @@ class ConverterDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyConverterTableViewCell.reuseIdentifier) as? CurrencyConverterTableViewCell else { return UITableViewCell() }
-        let currency = data?.rates[indexPath.row]
-        cell.currencyCode.text = currency?.code
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyConverterTableViewCell.reuseIdentifier) as? CurrencyConverterTableViewCell,
+            let currency = data?.rates[indexPath.row] else { return UITableViewCell() }
+        cell.currencyCode.text = currency.code
+        cell.rateTextField.text = String.init(format: "%.4f", currency.rate)
         return cell
     }
-    
-
-    
     
 }

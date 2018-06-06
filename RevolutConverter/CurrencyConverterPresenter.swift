@@ -14,12 +14,19 @@ protocol CurrencyConverterViewProtocol: class {
 
 protocol CurrencyConverterPresenterProtocol: class {
     func viewDidLoad()
+    func viewWillDisappear()
 }
 
 
 class CurrencyConverterPresenter: CurrencyConverterPresenterProtocol {
     fileprivate weak var view: CurrencyConverterViewProtocol!
     fileprivate var provider: CurrencyConverterProviderProtocol!
+    var exchangeRate: ExchangeRate? {
+        didSet {
+            print("exchange rate updated")
+//            tableView?.reloadData()
+        }
+    }
     var tableView : UITableView? = nil
     
     init(provider: CurrencyConverterProviderProtocol,
@@ -29,9 +36,18 @@ class CurrencyConverterPresenter: CurrencyConverterPresenterProtocol {
     }
     
     func viewDidLoad() {
-        print("View did load")
+        provider.injectDelegate(self)
         provider.startFetchingExchangeRates(baseCurrency: Currency.eurCurrency())
     }
     
+    func viewWillDisappear() {
+        provider.stopFetchingExchangeRates()
+    }
     
+}
+
+extension CurrencyConverterPresenter: CurrencyConverterProviderDelegate {
+    func didReceiveNewExchangeRate(rate: ExchangeRate) {
+        self.exchangeRate = rate
+    }
 }

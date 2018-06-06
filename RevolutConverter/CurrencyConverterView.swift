@@ -18,6 +18,10 @@ class CurrencyConverterView: UIViewController, CurrencyConverterViewProtocol {
         presenter = CurrencyConverterPresenter(provider: CurrencyConverterProvider(), view: self)
         presenter.viewDidLoad()
     }
-    
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presenter.viewWillDisappear()
+    }
 }
 

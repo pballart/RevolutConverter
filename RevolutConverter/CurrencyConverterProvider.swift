@@ -16,7 +16,7 @@ protocol CurrencyConverterProviderProtocol: class {
 }
 
 protocol CurrencyConverterProviderDelegate: class {
-    func didReceiveNewExchangeRate()
+    func didReceiveNewExchangeRate(rate: ExchangeRate)
 }
 
 class CurrencyConverterProvider: CurrencyConverterProviderProtocol {
@@ -29,19 +29,35 @@ class CurrencyConverterProvider: CurrencyConverterProviderProtocol {
     }
     
     var timer: Timer?
+    var baseCurrency: Currency?
     
     func startFetchingExchangeRates(baseCurrency: Currency) {
         print("start fetching")
+        self.baseCurrency = baseCurrency
+        fetchExchangeRate()
+        timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fetchExchangeRate), userInfo: nil, repeats: true)
     }
     
     func stopFetchingExchangeRates() {
         print("stop fetching")
+        timer?.invalidate()
         timer = nil
     }
     
     @objc private func fetchExchangeRate() {
         print("timer fired")
+        guard let currency = baseCurrency else { return }
+        apiProvider.getExchangeRate(baseCurrency: currency) { (result) in
+            switch result {
+            case .success(let exchangeRateDto):
+                let exchangeRate = ExchangeRate(dto: exchangeRateDto)
+                self.delegate?.didReceiveNewExchangeRate(rate: exchangeRate)
+                break
+            case .failure(let error):
+                print("Error getting exchange rate: \(error)")
+            }
+        }
     }
     
 }

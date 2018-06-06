@@ -27,6 +27,7 @@
 		5F2BAE9420C7D9B400B88E5F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03084420C7C64A0058181E /* NetworkError.swift */; };
 		5F2BAEA420C8120800B88E5F /* CurrencyConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEA320C8120800B88E5F /* CurrencyConverterPresenter.swift */; };
 		5F2BAEA620C8179B00B88E5F /* CurrencyConverterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEA520C8179B00B88E5F /* CurrencyConverterProvider.swift */; };
+		5F2BAEA820C81F0F00B88E5F /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEA720C81F0F00B88E5F /* ExchangeRate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		5F03084420C7C64A0058181E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		5F2BAEA320C8120800B88E5F /* CurrencyConverterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterPresenter.swift; sourceTree = "<group>"; };
 		5F2BAEA520C8179B00B88E5F /* CurrencyConverterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterProvider.swift; sourceTree = "<group>"; };
+		5F2BAEA720C81F0F00B88E5F /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		6B554C71C82EEDC04FB80B94 /* Pods_RevolutConverterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutConverterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC56A7B158D087464E8B0F0 /* Pods-RevolutConverterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverterTests/Pods-RevolutConverterTests.release.xcconfig"; sourceTree = "<group>"; };
 		B2F7AF9DFCA9CE2C274656E7 /* Pods-RevolutConverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverter/Pods-RevolutConverter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				5F03083C20C7BEEC0058181E /* Currency.swift */,
+				5F2BAEA720C81F0F00B88E5F /* ExchangeRate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				5F03084520C7C64A0058181E /* NetworkError.swift in Sources */,
 				5F03083D20C7BEEC0058181E /* Currency.swift in Sources */,
 				5F03081520C6F4D90058181E /* CurrencyConverterView.swift in Sources */,
+				5F2BAEA820C81F0F00B88E5F /* ExchangeRate.swift in Sources */,
 				5F03081320C6F4D90058181E /* AppDelegate.swift in Sources */,
 				5F03083F20C7C00B0058181E /* ExchangeDTO.swift in Sources */,
 				5F03083820C6FC330058181E /* ExchangeEndpoint.swift in Sources */,

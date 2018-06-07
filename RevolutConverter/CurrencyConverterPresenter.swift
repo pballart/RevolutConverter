@@ -87,6 +87,10 @@ extension CurrencyConverterPresenter: UITableViewDelegate {
         guard let cell = tableView.cellForRow(at: indexPath) as? CurrencyConverterTableViewCell else { return }
         cell.rateTextField.becomeFirstResponder()
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
 }
 
 extension CurrencyConverterPresenter: CurrencyConverterProviderDelegate {

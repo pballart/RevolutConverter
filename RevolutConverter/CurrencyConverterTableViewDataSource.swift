@@ -39,7 +39,7 @@ class ConverterDataSource: NSObject, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyConverterTableViewCell.reuseIdentifier) as? CurrencyConverterTableViewCell,
             let currency = data?[indexPath.row] else { return UITableViewCell() }
         cell.currencyCode.text = currency.code
-        cell.rateTextField.text = String.init(format: "%.4f", currency.rate).replacingOccurrences(of: ".", with: ",")
+        cell.rateTextField.text = currency.rate == 0 ? "" : String.init(format: "%.2f", currency.rate).replacingOccurrences(of: ".", with: ",")
         cell.delegate = self
         return cell
     }

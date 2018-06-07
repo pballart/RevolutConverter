@@ -29,32 +29,43 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mp7-0q-l1b">
-                                                    <rect key="frame" x="261" y="7" width="99" height="30"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Mp7-0q-l1b">
+                                                    <rect key="frame" x="325" y="10" width="30" height="24"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="99" id="hqH-Ci-HQp"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="ST3-Np-CFZ"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICI-jA-mOA">
+                                                    <rect key="frame" x="325" y="38" width="30" height="2"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="oUT-RB-h6D"/>
+                                                    </constraints>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXx-Yx-4nH">
-                                                    <rect key="frame" x="15" y="11.5" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="20" y="10" width="49.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="VXx-Yx-4nH" firstAttribute="leading" secondItem="jQx-7X-tYE" secondAttribute="leading" constant="15" id="1pO-nR-uBp"/>
-                                                <constraint firstItem="Mp7-0q-l1b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VXx-Yx-4nH" secondAttribute="trailing" constant="20" id="Dlx-Ie-os0"/>
-                                                <constraint firstAttribute="trailing" secondItem="Mp7-0q-l1b" secondAttribute="trailing" constant="15" id="Lfc-Hv-Hfg"/>
+                                                <constraint firstItem="VXx-Yx-4nH" firstAttribute="leading" secondItem="jQx-7X-tYE" secondAttribute="leading" constant="20" id="1pO-nR-uBp"/>
+                                                <constraint firstItem="ICI-jA-mOA" firstAttribute="top" secondItem="Mp7-0q-l1b" secondAttribute="bottom" constant="4" id="8Gy-cw-gbv"/>
+                                                <constraint firstItem="Mp7-0q-l1b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VXx-Yx-4nH" secondAttribute="trailing" constant="30" id="Dlx-Ie-os0"/>
+                                                <constraint firstItem="ICI-jA-mOA" firstAttribute="width" secondItem="Mp7-0q-l1b" secondAttribute="width" id="Ffn-el-Yhb"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mp7-0q-l1b" secondAttribute="trailing" constant="20" id="Lfc-Hv-Hfg"/>
                                                 <constraint firstItem="Mp7-0q-l1b" firstAttribute="centerY" secondItem="jQx-7X-tYE" secondAttribute="centerY" id="s6T-fa-oIc"/>
+                                                <constraint firstItem="ICI-jA-mOA" firstAttribute="centerX" secondItem="Mp7-0q-l1b" secondAttribute="centerX" id="u9B-R6-tOK"/>
                                                 <constraint firstItem="VXx-Yx-4nH" firstAttribute="centerY" secondItem="jQx-7X-tYE" secondAttribute="centerY" id="xkB-9w-Zkr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="currencyCode" destination="VXx-Yx-4nH" id="3qp-R6-fNn"/>
+                                            <outlet property="rateBottomView" destination="ICI-jA-mOA" id="i8m-Jv-EkE"/>
                                             <outlet property="rateTextField" destination="Mp7-0q-l1b" id="q9b-Yo-NiJ"/>
                                         </connections>
                                     </tableViewCell>

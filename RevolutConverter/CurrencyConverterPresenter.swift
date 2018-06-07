@@ -16,6 +16,7 @@ protocol CurrencyConverterPresenterProtocol: class {
     func viewDidLoad(tableView: UITableView)
     func viewWillDisappear()
     func didChange(amount: Float)
+    func didSelectRowAt(indexPath: IndexPath)
 }
 
 
@@ -36,6 +37,7 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
         self.tableView = tableView
         dataSource = ConverterDataSource(tableView: tableView, presenter: self)
         self.tableView.delegate = self
+        self.tableView.keyboardDismissMode = .onDrag
         provider.injectDelegate(self)
         provider.startFetchingExchangeRates(baseCurrency: Currency.eurCurrency())
     }
@@ -58,10 +60,8 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
             tableView.reloadRows(at: indexPathsToUpdate, with: .none)
         }
     }
-}
-
-extension CurrencyConverterPresenter: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    func didSelectRowAt(indexPath: IndexPath) {
         guard var exchangeRate = dataSource.data else { return }
         let removedRate = exchangeRate.remove(at: indexPath.row)
         exchangeRate.insert(removedRate, at: 0)
@@ -73,10 +73,18 @@ extension CurrencyConverterPresenter: UITableViewDelegate {
             for index in 0..<indexPath.row {
                 tableView.moveRow(at: IndexPath(row: index, section: 0), to: IndexPath(row: index+1, section: 0))
             }
-        }, completion: nil)
+        }, completion: { (finished) in
+            if finished {
+                self.tableView.scrollToRow(at: zeroIndexPath, at: .top, animated: true)
+            }
+        })
         
-        tableView.scrollToRow(at: zeroIndexPath, at: .top, animated: true)
-        guard let cell = tableView.cellForRow(at: zeroIndexPath) as? CurrencyConverterTableViewCell else { return }
+    }
+}
+
+extension CurrencyConverterPresenter: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? CurrencyConverterTableViewCell else { return }
         cell.rateTextField.becomeFirstResponder()
     }
 }

@@ -39,7 +39,7 @@ class ConverterDataSource: NSObject, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyConverterTableViewCell.reuseIdentifier) as? CurrencyConverterTableViewCell,
             let currency = data?[indexPath.row] else { return UITableViewCell() }
         cell.currencyCode.text = currency.code
-        cell.rateTextField.text = String.init(format: "%.4f", currency.rate)
+        cell.rateTextField.text = String.init(format: "%.4f", currency.rate).replacingOccurrences(of: ".", with: ",")
         cell.delegate = self
         return cell
     }
@@ -54,8 +54,7 @@ extension ConverterDataSource: CurrencyConverterCellDelegate {
     func didBeginEditing(cell: CurrencyConverterTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         if indexPath.row != 0 {
-            //TODO: fire a notifications that the presenter will listen to make the row go up
-            //Or use presenter protocol
+            presenter?.didSelectRowAt(indexPath: indexPath)
         }
     }
 }

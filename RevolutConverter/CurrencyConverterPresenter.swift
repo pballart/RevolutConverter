@@ -79,7 +79,7 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
             }
         }, completion: { (finished) in
             if finished {
-                self.tableView.scrollToRow(at: zeroIndexPath, at: .top, animated: true)
+                self.tableView.scrollToRow(at: zeroIndexPath, at: .top, animated: false)
             }
         })
         

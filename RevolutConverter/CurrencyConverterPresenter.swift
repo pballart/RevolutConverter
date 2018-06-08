@@ -47,7 +47,11 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
     }
     
     func didChange(amount: Float) {
-        guard let data = dataSource.data else { return }
+        updateCurrenciesWith(amount: amount)
+    }
+    
+    private func updateCurrenciesWith(amount: Float) {
+        guard let data = dataSource.data, data.count > 0 else { return }
         dataSource.data = provider.updateCurrencies(currencies: data, fromCurrency: data.first!, with: amount)
         updateTableViewCells()
     }
@@ -95,12 +99,11 @@ extension CurrencyConverterPresenter: UITableViewDelegate {
 
 extension CurrencyConverterPresenter: CurrencyConverterProviderDelegate {
     func didReceiveNewExchangeRate(rateDTO: ExchangeDTO) {
-        guard let data = dataSource.data else {
+        guard let data = dataSource.data, data.count > 0 else {
             let exchangeRate = ExchangeRate(dto: rateDTO)
             dataSource.data = exchangeRate.rates
             return
         }
-        dataSource.data = provider.updateCurrencies(currencies: data, fromCurrency: data.first!, with: data.first!.rate)
-        updateTableViewCells()
+        updateCurrenciesWith(amount: data.first!.rate)
     }
 }

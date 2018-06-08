@@ -19,12 +19,7 @@
 		5F03083A20C6FC460058181E /* ExchangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03083920C6FC460058181E /* ExchangeService.swift */; };
 		5F03083D20C7BEEC0058181E /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03083C20C7BEEC0058181E /* Currency.swift */; };
 		5F03083F20C7C00B0058181E /* ExchangeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03083E20C7C00B0058181E /* ExchangeDTO.swift */; };
-		5F03084020C7C2570058181E /* ExchangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03083920C6FC460058181E /* ExchangeService.swift */; };
-		5F03084120C7C28C0058181E /* ExchangeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03083720C6FC330058181E /* ExchangeEndpoint.swift */; };
-		5F03084220C7C28F0058181E /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03083C20C7BEEC0058181E /* Currency.swift */; };
-		5F03084320C7C2920058181E /* ExchangeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03083E20C7C00B0058181E /* ExchangeDTO.swift */; };
 		5F03084520C7C64A0058181E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03084420C7C64A0058181E /* NetworkError.swift */; };
-		5F2BAE9420C7D9B400B88E5F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03084420C7C64A0058181E /* NetworkError.swift */; };
 		5F2BAEA420C8120800B88E5F /* CurrencyConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEA320C8120800B88E5F /* CurrencyConverterPresenter.swift */; };
 		5F2BAEA620C8179B00B88E5F /* CurrencyConverterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEA520C8179B00B88E5F /* CurrencyConverterProvider.swift */; };
 		5F2BAEA820C81F0F00B88E5F /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEA720C81F0F00B88E5F /* ExchangeRate.swift */; };
@@ -33,6 +28,8 @@
 		5F2BAED720C85FB200B88E5F /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAED620C85FB200B88E5F /* CurrencyConverter.swift */; };
 		5F2BAEDB20CAA31600B88E5F /* IsoCountryCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAED920CAA31600B88E5F /* IsoCountryCodes.swift */; };
 		5F2BAEDC20CAA31600B88E5F /* IsoCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEDA20CAA31600B88E5F /* IsoCountries.swift */; };
+		5F2BAEE020CADA2200B88E5F /* RevolutConverterStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEDF20CADA2200B88E5F /* RevolutConverterStubs.swift */; };
+		5FEFFC2420CADF19001B1AC8 /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFFC2320CADF19001B1AC8 /* CurrencyConverterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +67,8 @@
 		5F2BAED620C85FB200B88E5F /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
 		5F2BAED920CAA31600B88E5F /* IsoCountryCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsoCountryCodes.swift; sourceTree = "<group>"; };
 		5F2BAEDA20CAA31600B88E5F /* IsoCountries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsoCountries.swift; sourceTree = "<group>"; };
+		5F2BAEDF20CADA2200B88E5F /* RevolutConverterStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutConverterStubs.swift; sourceTree = "<group>"; };
+		5FEFFC2320CADF19001B1AC8 /* CurrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTests.swift; sourceTree = "<group>"; };
 		6B554C71C82EEDC04FB80B94 /* Pods_RevolutConverterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutConverterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC56A7B158D087464E8B0F0 /* Pods-RevolutConverterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverterTests/Pods-RevolutConverterTests.release.xcconfig"; sourceTree = "<group>"; };
 		B2F7AF9DFCA9CE2C274656E7 /* Pods-RevolutConverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverter/Pods-RevolutConverter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				5F03082720C6F4DB0058181E /* RevolutConverterTests.swift */,
+				5FEFFC2320CADF19001B1AC8 /* CurrencyConverterTests.swift */,
+				5F2BAEDF20CADA2200B88E5F /* RevolutConverterStubs.swift */,
 				5F03082920C6F4DB0058181E /* Info.plist */,
 			);
 			path = RevolutConverterTests;
@@ -422,12 +423,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F03084220C7C28F0058181E /* Currency.swift in Sources */,
-				5F03084320C7C2920058181E /* ExchangeDTO.swift in Sources */,
-				5F03084020C7C2570058181E /* ExchangeService.swift in Sources */,
-				5F2BAE9420C7D9B400B88E5F /* NetworkError.swift in Sources */,
+				5F2BAEE020CADA2200B88E5F /* RevolutConverterStubs.swift in Sources */,
+				5FEFFC2420CADF19001B1AC8 /* CurrencyConverterTests.swift in Sources */,
 				5F03082820C6F4DB0058181E /* RevolutConverterTests.swift in Sources */,
-				5F03084120C7C28C0058181E /* ExchangeEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

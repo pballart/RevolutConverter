@@ -7,42 +7,45 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class ConverterDataSource: NSObject, UITableViewDataSource {
+class ConverterDataSource {
     
-    var data: [Currency]? {
-        didSet {
-            if !initialDataLoaded {
-                tableView.reloadData()
-                initialDataLoaded = true
-            }
-        }
-    }
-    
-    var initialDataLoaded: Bool = false
+    let disposeBag = DisposeBag()
+    let data = Variable<[Currency]>([])
     
     weak var tableView: UITableView!
     weak var presenter: CurrencyConverterPresenterProtocol?
     
     init(tableView: UITableView, presenter: CurrencyConverterPresenterProtocol) {
-        super.init()
         self.tableView = tableView
-        self.tableView.dataSource = self
         self.presenter = presenter
+        configureRxTableView()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data?.count ?? 0
+    private func configureRxTableView() {
+        data.asObservable().bind(to: tableView.rx.items(cellIdentifier: CurrencyConverterTableViewCell.reuseIdentifier,
+                                                        cellType: CurrencyConverterTableViewCell.self)){ (row, currency, cell) in
+                                                            cell.currencyCode.text = currency.flag + " " + currency.code
+                                                            cell.rateTextField.text = currency.rate == 0 ? "" : String.init(format: "%.2f", currency.rate).replacingOccurrences(of: ".", with: ",")
+                                                            cell.delegate = self
+            }
+            .disposed(by: disposeBag)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyConverterTableViewCell.reuseIdentifier) as? CurrencyConverterTableViewCell,
-            let currency = data?[indexPath.row] else { return UITableViewCell() }
-        cell.currencyCode.text = currency.flag + " " + currency.code
-        cell.rateTextField.text = currency.rate == 0 ? "" : String.init(format: "%.2f", currency.rate).replacingOccurrences(of: ".", with: ",")
-        cell.delegate = self
-        return cell
-    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return data?.count ?? 0
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyConverterTableViewCell.reuseIdentifier) as? CurrencyConverterTableViewCell,
+//            let currency = data?[indexPath.row] else { return UITableViewCell() }
+//        cell.currencyCode.text = currency.flag + " " + currency.code
+//        cell.rateTextField.text = currency.rate == 0 ? "" : String.init(format: "%.2f", currency.rate).replacingOccurrences(of: ".", with: ",")
+//        cell.delegate = self
+//        return cell
+//    }
     
 }
 

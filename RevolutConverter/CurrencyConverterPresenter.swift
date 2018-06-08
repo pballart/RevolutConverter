@@ -47,8 +47,11 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
     }
     
     func didChange(amount: Float) {
-        guard let data = dataSource.data else { return }
-        dataSource.data = provider.updateCurrencies(currencies: data, fromCurrency: data.first!, with: amount)
+        updateCurrenciesWith(amount: amount)
+    }
+    
+    private func updateCurrenciesWith(amount: Float) {
+        dataSource.data.value = provider.updateCurrencies(currencies: dataSource.data.value, fromCurrency: dataSource.data.value.first!, with: amount)
         updateTableViewCells()
     }
     
@@ -62,10 +65,10 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
     }
     
     func didSelectRowAt(indexPath: IndexPath) {
-        guard var exchangeRate = dataSource.data else { return }
+        var exchangeRate = dataSource.data.value
         let removedRate = exchangeRate.remove(at: indexPath.row)
         exchangeRate.insert(removedRate, at: 0)
-        dataSource.data = exchangeRate
+        dataSource.data.value = exchangeRate
         
         let zeroIndexPath = IndexPath(row: 0, section: 0)
         tableView.performBatchUpdates({
@@ -95,12 +98,11 @@ extension CurrencyConverterPresenter: UITableViewDelegate {
 
 extension CurrencyConverterPresenter: CurrencyConverterProviderDelegate {
     func didReceiveNewExchangeRate(rateDTO: ExchangeDTO) {
-        guard let data = dataSource.data else {
+        guard dataSource.data.value.count > 0 else {
             let exchangeRate = ExchangeRate(dto: rateDTO)
-            dataSource.data = exchangeRate.rates
+            dataSource.data.value = exchangeRate.rates
             return
         }
-        dataSource.data = provider.updateCurrencies(currencies: data, fromCurrency: data.first!, with: data.first!.rate)
-        updateTableViewCells()
+//        updateCurrenciesWith(amount: dataSource.data.value.first!.rate)
     }
 }

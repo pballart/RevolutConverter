@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Moya
 
 class CurrencyConverterView: UIViewController, CurrencyConverterViewProtocol {
     fileprivate var presenter: CurrencyConverterPresenterProtocol!
@@ -15,7 +16,9 @@ class CurrencyConverterView: UIViewController, CurrencyConverterViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = CurrencyConverterPresenter(provider: CurrencyConverterProvider(), view: self)
+        let exchangeService = ExchangeService(provider: MoyaProvider<ExchangeEndpoint>())
+        let provider = CurrencyConverterProvider(apiProvider: exchangeService)
+        presenter = CurrencyConverterPresenter(provider: provider, view: self)
         presenter.viewDidLoad(tableView: tableView)
     }
 

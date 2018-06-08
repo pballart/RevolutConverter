@@ -11,19 +11,15 @@ import Moya
 @testable import RevolutConverter
 
 class CurrencyConverterTests: XCTestCase {
+    var exchangeService: ExchangeServiceStub!
+    var provider: CurrencyConverterProvider!
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        exchangeService = ExchangeServiceStub()
+        provider = CurrencyConverterProvider(apiProvider: exchangeService)
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testConvertFunction() {
-        let provider = CurrencyConverterProvider()
         provider.exchangeRates = ["A": 0.5,
                                   "B": 1.0,
                                   "C": 2.0,

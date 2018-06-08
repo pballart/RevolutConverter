@@ -8,6 +8,7 @@
 
 import XCTest
 import Moya
+import Result
 @testable import RevolutConverter
 
 class CurrencyConverterViewStub: UIViewController, CurrencyConverterViewProtocol {
@@ -60,4 +61,13 @@ class CurrencyConverterProviderStub: CurrencyConverterProviderProtocol {
         result = "updateCurrencies"
         return []
     }
+}
+
+class ExchangeServiceStub: ExchangeServiceProtocol {
+    var result = ""
+    func getExchangeRate(baseCurrency: Currency, onResult: @escaping (Result<ExchangeDTO, NetworkError>) -> Void) {
+        result = "getExchangeRate"
+    }
+    
+    
 }

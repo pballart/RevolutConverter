@@ -24,8 +24,11 @@ protocol CurrencyConverterProviderDelegate: class {
 class CurrencyConverterProvider: CurrencyConverterProviderProtocol {
     weak var delegate: CurrencyConverterProviderDelegate?
     
-    let apiProvider: ExchangeServiceProtocol = ExchangeService(provider: MoyaProvider<ExchangeEndpoint>())
+    let apiProvider: ExchangeServiceProtocol
     
+    init (apiProvider: ExchangeServiceProtocol) {
+        self.apiProvider = apiProvider
+    }
     func injectDelegate(_ delegate: CurrencyConverterProviderDelegate) {
         self.delegate = delegate
     }

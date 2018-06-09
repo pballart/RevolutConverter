@@ -9,12 +9,14 @@
 import Foundation
 import Moya
 import Result
+import RxSwift
 
 protocol ExchangeServiceProtocol {
     func getExchangeRate(baseCurrency: Currency, onResult: @escaping (_ result: Result<ExchangeDTO, NetworkError> )-> Void)
 }
 
 class ExchangeService: ExchangeServiceProtocol {
+    let disposeBag = DisposeBag()
     let exchangeProvider: MoyaProvider<ExchangeEndpoint>
     
     init(provider: MoyaProvider<ExchangeEndpoint>) {
@@ -22,24 +24,26 @@ class ExchangeService: ExchangeServiceProtocol {
     }
     
     func getExchangeRate(baseCurrency: Currency, onResult: @escaping (_ result: Result<ExchangeDTO, NetworkError> )-> Void) {
-        exchangeProvider.request(.exchangeRate(baseCurrency: baseCurrency.code)) { (result) in
-            switch result {
-            case let .success(moyaResponse):
-                do {
-                    _ = try moyaResponse.filterSuccessfulStatusCodes()
-                    let decoder = JSONDecoder()
-                    let exchangeData = try decoder.decode(ExchangeDTO.self, from: moyaResponse.data)
-                    onResult(.success(exchangeData))
-                }
-                catch MoyaError.statusCode {
-                    onResult(.failure(NetworkError.serverInternalError))
-                }
-                catch {
-                    onResult(.failure(NetworkError.responseFormatError))
-                }
-            case let .failure(error):
-                onResult(.failure(NetworkError.translateError(error)))
+        let endpoint: ExchangeEndpoint = .exchangeRate(baseCurrency: baseCurrency.code)
+        exchangeProvider.rx.request(endpoint).filterSuccessfulStatusCodes().subscribe(onSuccess: { response in
+            do {
+                _ = try response.filterSuccessfulStatusCodes()
+                let decoder = JSONDecoder()
+                let exchangeData = try decoder.decode(ExchangeDTO.self, from: response.data)
+                onResult(.success(exchangeData))
             }
-        }
+            catch MoyaError.statusCode {
+                onResult(.failure(NetworkError.serverInternalError))
+            }
+            catch {
+                onResult(.failure(NetworkError.responseFormatError))
+            }
+        }) { error in
+            if let err = error as? MoyaError {
+                onResult(.failure(NetworkError.translateError(err)))
+            } else {
+                onResult(.failure(.responseFormatError))
+            }
+        }.disposed(by: disposeBag)
     }
 }

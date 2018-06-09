@@ -2,10 +2,8 @@
 platform :ios, '10.0'
 
 def common_pods
-    pod 'Moya'
+    pod 'Moya/RxSwift', '~> 10.0'
     pod 'Result'
-    pod 'RxSwift',    '~> 4.0'
-    pod 'RxCocoa',    '~> 4.0'
 end
 
 target 'RevolutConverter' do

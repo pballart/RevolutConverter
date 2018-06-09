@@ -100,7 +100,9 @@ extension CurrencyConverterPresenter: CurrencyConverterProviderDelegate {
     func didReceiveNewExchangeRate(rateDTO: ExchangeDTO) {
         guard let data = dataSource.data, data.count > 0 else {
             let exchangeRate = ExchangeRate(dto: rateDTO)
-            dataSource.data = exchangeRate.rates
+            dataSource.data = exchangeRate.rates.sorted(by: { (c1, c2) -> Bool in
+                return c1.code < c2.code
+            })
             return
         }
         updateCurrenciesWith(amount: data.first!.rate)

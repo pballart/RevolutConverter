@@ -133,14 +133,13 @@
 			isa = PBXGroup;
 			children = (
 				5F03081220C6F4D90058181E /* AppDelegate.swift */,
-				5F2BAEA520C8179B00B88E5F /* CurrencyConverterProvider.swift */,
-				5F2BAEA320C8120800B88E5F /* CurrencyConverterPresenter.swift */,
-				5F2BAED420C840F600B88E5F /* CurrencyConverterTableViewDataSource.swift */,
-				5F2BAED820CAA2FD00B88E5F /* IsoCountryCodes */,
 				5F2BAED620C85FB200B88E5F /* CurrencyConverter.swift */,
+				5F03083420C6F7A80058181E /* Network */,
+				5FEFFC2C20CBF75C001B1AC8 /* Presenter */,
+				5FEFFC2B20CBF750001B1AC8 /* Provider */,
 				5F2BAECF20C83F1200B88E5F /* View */,
 				5F03083B20C7BECF0058181E /* Model */,
-				5F03083420C6F7A80058181E /* Network */,
+				5F2BAED820CAA2FD00B88E5F /* IsoCountryCodes */,
 				5F03081620C6F4D90058181E /* Main.storyboard */,
 				5F03081920C6F4DB0058181E /* Assets.xcassets */,
 				5F03081B20C6F4DB0058181E /* LaunchScreen.storyboard */,
@@ -186,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				5F03081420C6F4D90058181E /* CurrencyConverterView.swift */,
+				5F2BAED420C840F600B88E5F /* CurrencyConverterTableViewDataSource.swift */,
 				5F2BAED020C83F3900B88E5F /* CurrencyConverterTableViewCell.swift */,
 			);
 			path = View;
@@ -198,6 +198,22 @@
 				5F2BAED920CAA31600B88E5F /* IsoCountryCodes.swift */,
 			);
 			path = IsoCountryCodes;
+			sourceTree = "<group>";
+		};
+		5FEFFC2B20CBF750001B1AC8 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				5F2BAEA520C8179B00B88E5F /* CurrencyConverterProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		5FEFFC2C20CBF75C001B1AC8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5F2BAEA320C8120800B88E5F /* CurrencyConverterPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		9DC9691A7F345BE7660BBB30 /* Pods */ = {
@@ -585,7 +601,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 887XBWP9ER;
 				INFOPLIST_FILE = RevolutConverter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SolArtApps.RevolutConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -601,7 +620,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 887XBWP9ER;
 				INFOPLIST_FILE = RevolutConverter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SolArtApps.RevolutConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -618,7 +640,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZTB5S386Z;
 				INFOPLIST_FILE = RevolutConverterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pballart.RevolutConverterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -636,7 +662,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZTB5S386Z;
 				INFOPLIST_FILE = RevolutConverterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pballart.RevolutConverterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

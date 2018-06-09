@@ -67,6 +67,7 @@ class ExchangeServiceStub: ExchangeServiceProtocol {
     var result = ""
     func getExchangeRate(baseCurrency: Currency, onResult: @escaping (Result<ExchangeDTO, NetworkError>) -> Void) {
         result = "getExchangeRate"
+        onResult(.success(ExchangeDTO(base: "EUR", rates: [:])))
     }
     
     

@@ -31,6 +31,7 @@
 		5F2BAEE020CADA2200B88E5F /* RevolutConverterStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEDF20CADA2200B88E5F /* RevolutConverterStubs.swift */; };
 		5FEFFC2420CADF19001B1AC8 /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFFC2320CADF19001B1AC8 /* CurrencyConverterTests.swift */; };
 		5FEFFC2620CAE3ED001B1AC8 /* CurrencyConverterProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFFC2520CAE3ED001B1AC8 /* CurrencyConverterProviderTests.swift */; };
+		5FEFFC2820CBE389001B1AC8 /* CurrencyConverterPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFFC2720CBE389001B1AC8 /* CurrencyConverterPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		5F2BAEDF20CADA2200B88E5F /* RevolutConverterStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutConverterStubs.swift; sourceTree = "<group>"; };
 		5FEFFC2320CADF19001B1AC8 /* CurrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTests.swift; sourceTree = "<group>"; };
 		5FEFFC2520CAE3ED001B1AC8 /* CurrencyConverterProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterProviderTests.swift; sourceTree = "<group>"; };
+		5FEFFC2720CBE389001B1AC8 /* CurrencyConverterPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterPresenterTests.swift; sourceTree = "<group>"; };
 		6B554C71C82EEDC04FB80B94 /* Pods_RevolutConverterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutConverterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC56A7B158D087464E8B0F0 /* Pods-RevolutConverterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverterTests/Pods-RevolutConverterTests.release.xcconfig"; sourceTree = "<group>"; };
 		B2F7AF9DFCA9CE2C274656E7 /* Pods-RevolutConverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutConverter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutConverter/Pods-RevolutConverter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				5FEFFC2320CADF19001B1AC8 /* CurrencyConverterTests.swift */,
 				5FEFFC2520CAE3ED001B1AC8 /* CurrencyConverterProviderTests.swift */,
+				5FEFFC2720CBE389001B1AC8 /* CurrencyConverterPresenterTests.swift */,
 				5F03082720C6F4DB0058181E /* APITests.swift */,
 				5F2BAEDF20CADA2200B88E5F /* RevolutConverterStubs.swift */,
 				5F03082920C6F4DB0058181E /* Info.plist */,
@@ -427,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FEFFC2620CAE3ED001B1AC8 /* CurrencyConverterProviderTests.swift in Sources */,
+				5FEFFC2820CBE389001B1AC8 /* CurrencyConverterPresenterTests.swift in Sources */,
 				5F2BAEE020CADA2200B88E5F /* RevolutConverterStubs.swift in Sources */,
 				5FEFFC2420CADF19001B1AC8 /* CurrencyConverterTests.swift in Sources */,
 				5F03082820C6F4DB0058181E /* APITests.swift in Sources */,

@@ -41,24 +41,24 @@ class CurrencyConverterProviderStub: CurrencyConverterProviderProtocol {
     var result = ""
 
     func injectDelegate(_ delegate: CurrencyConverterProviderDelegate) {
-        result = "injectDelegate"
+        result += "injectDelegate"
     }
     
     func startFetchingExchangeRates(baseCurrency: Currency) {
-        result = "startFetchingExchangeRates"
+        result += "startFetchingExchangeRates"
     }
     
     func stopFetchingExchangeRates() {
-        result = "stopFetchingExchangeRates"
+        result += "stopFetchingExchangeRates"
     }
     
     func rateForCurrency(_ currency: Currency) -> Float {
-        result = "rateForCurrency"
+        result += "rateForCurrency"
         return 1.0
     }
     
     func updateCurrencies(currencies: [Currency], fromCurrency: Currency, with amount: Float) -> [Currency] {
-        result = "updateCurrencies"
+        result += "updateCurrencies"
         return []
     }
 }

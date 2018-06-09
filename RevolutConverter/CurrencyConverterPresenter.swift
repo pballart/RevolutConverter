@@ -66,7 +66,7 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
     }
     
     func didSelectRowAt(indexPath: IndexPath) {
-        guard var exchangeRate = dataSource.data else { return }
+        guard var exchangeRate = dataSource.data, exchangeRate.count > 0 else { return }
         let removedRate = exchangeRate.remove(at: indexPath.row)
         exchangeRate.insert(removedRate, at: 0)
         dataSource.data = exchangeRate
@@ -82,7 +82,6 @@ class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
                 self.tableView.scrollToRow(at: zeroIndexPath, at: .top, animated: false)
             }
         })
-        
     }
 }
 

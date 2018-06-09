@@ -19,10 +19,9 @@ protocol CurrencyConverterPresenterProtocol: class {
     func didSelectRowAt(indexPath: IndexPath)
 }
 
-
 class CurrencyConverterPresenter: NSObject, CurrencyConverterPresenterProtocol {
     fileprivate weak var view: CurrencyConverterViewProtocol!
-    fileprivate var provider: CurrencyConverterProviderProtocol!
+    fileprivate var provider: CurrencyConverterProviderProtocol
     
     var tableView: UITableView!
     var dataSource: ConverterDataSource!

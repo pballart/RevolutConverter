@@ -70,5 +70,4 @@ class ExchangeServiceStub: ExchangeServiceProtocol {
         onResult(.success(ExchangeDTO(base: "EUR", rates: [:])))
     }
     
-    
 }

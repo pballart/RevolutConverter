@@ -21,4 +21,3 @@ struct ExchangeRate {
         self.rates = serverRates
     }
 }
-

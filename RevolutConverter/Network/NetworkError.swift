@@ -9,8 +9,7 @@
 import Foundation
 import Moya
 
-public enum NetworkError: Swift.Error, Equatable
-{
+public enum NetworkError: Swift.Error, Equatable {
     case invalidParamsError
     case connectionError
     case timeOutError
@@ -19,30 +18,21 @@ public enum NetworkError: Swift.Error, Equatable
     case serverInternalError
     case clientError(message: String?, internalCode: String?)
     
-    public static func translateError(_ moyaError : MoyaError) -> NetworkError
-    {
+    public static func translateError(_ moyaError: MoyaError) -> NetworkError {
         switch moyaError {
-        case .underlying(let nsErr):
-            switch nsErr.0._code {
-            case -1001:
-                return NetworkError.timeOutError
-            case -999:
-                return NetworkError.cancelledError
-            default:
-                return NetworkError.connectionError
-            }
         case .statusCode(let response):
-            switch(response.statusCode){
+            switch response.statusCode {
             case 500...599:
                 return NetworkError.serverInternalError
             default:
-                return NetworkError.clientError(message: "Invalid status code \(response.statusCode)", internalCode: "\(response.statusCode)")
+                return NetworkError.clientError(message: "Invalid status code \(response.statusCode)",
+                    internalCode: "\(response.statusCode)")
             }
-        case .imageMapping(_):
+        case .imageMapping:
             return NetworkError.responseFormatError
-        case .jsonMapping(_):
+        case .jsonMapping:
             return NetworkError.responseFormatError
-        case .stringMapping(_):
+        case .stringMapping:
             return NetworkError.responseFormatError
         default:
             return NetworkError.responseFormatError
@@ -51,7 +41,9 @@ public enum NetworkError: Swift.Error, Equatable
     
     public static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
         switch (lhs, rhs) {
-        case (.invalidParamsError, .invalidParamsError), (.connectionError, .connectionError), (.timeOutError, .timeOutError), (.cancelledError, .cancelledError), (.responseFormatError, .responseFormatError), (.serverInternalError, .serverInternalError):
+        case (.invalidParamsError, .invalidParamsError), (.connectionError, .connectionError),
+             (.timeOutError, .timeOutError), (.cancelledError, .cancelledError),
+             (.responseFormatError, .responseFormatError), (.serverInternalError, .serverInternalError):
             return true
         case (.clientError(_, let internalCodeLeft), .clientError(_, let internalCodeRight)):
             return internalCodeLeft == internalCodeRight

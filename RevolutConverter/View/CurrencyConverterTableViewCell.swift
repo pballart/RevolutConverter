@@ -38,7 +38,8 @@ class CurrencyConverterTableViewCell: UITableViewCell {
 }
 
 extension CurrencyConverterTableViewCell: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let nsString = textField.text as NSString? else { return false }
         var candidateString: String = nsString.replacingCharacters(in: range, with: string).replacingOccurrences(of: ",", with: ".")
         if candidateString == "" {

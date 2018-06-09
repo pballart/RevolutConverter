@@ -41,7 +41,11 @@ class CurrencyConverterProvider: CurrencyConverterProviderProtocol {
         self.baseCurrency = baseCurrency
         fetchExchangeRate()
         timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fetchExchangeRate), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1,
+                                     target: self,
+                                     selector: #selector(fetchExchangeRate),
+                                     userInfo: nil,
+                                     repeats: true)
     }
     
     func stopFetchingExchangeRates() {
@@ -56,7 +60,6 @@ class CurrencyConverterProvider: CurrencyConverterProviderProtocol {
             case .success(let exchangeRateDTO):
                 self.exchangeRates = exchangeRateDTO.rates
                 self.delegate?.didReceiveNewExchangeRate(rateDTO: exchangeRateDTO)
-                break
             case .failure(let error):
                 print("Error getting exchange rate: \(error)")
             }
@@ -72,7 +75,10 @@ class CurrencyConverterProvider: CurrencyConverterProviderProtocol {
     func updateCurrencies(currencies: [Currency], fromCurrency: Currency, with amount: Float) -> [Currency] {
         var updatedCurrencies = [Currency]()
         for currencyToUpdate in currencies {
-            let newAmount = CurrencyConverter.convert(amount: amount, fromCurrency: fromCurrency, toCurrency: currencyToUpdate, provider: self)
+            let newAmount = CurrencyConverter.convert(amount: amount,
+                                                      fromCurrency: fromCurrency,
+                                                      toCurrency: currencyToUpdate,
+                                                      provider: self)
             updatedCurrencies.append(Currency(code: currencyToUpdate.code, rate: newAmount))
         }
         return updatedCurrencies

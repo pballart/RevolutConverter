@@ -24,7 +24,7 @@ class APITests: XCTestCase {
                 XCTAssert(exchangeInfo.base == eurCurrency.code)
                 XCTAssertFalse(exchangeInfo.rates.isEmpty)
             case .failure:
-                XCTFail()
+                XCTFail("Failed to get exchange rate")
             }
             expect.fulfill()
         }
@@ -38,18 +38,21 @@ class APITests: XCTestCase {
     func testAPICallFails() {
         let eurCurrency = Currency.eurCurrency()
 
-        let endpointClosure = { (target: ExchangeEndpoint) -> Endpoint in
-            return Endpoint(url: target.baseURL.absoluteString, sampleResponseClosure: {.networkResponse(500, target.sampleData)}, method: target.method, task: target.task, httpHeaderFields: target.headers)
+        let endpointClosure = { (target: ExchangeEndpoint) -> Endpoint<ExchangeEndpoint> in
+            return Endpoint(url: target.baseURL.absoluteString,
+                            sampleResponseClosure: {.networkResponse(500, target.sampleData)},
+                            method: target.method, task: target.task, httpHeaderFields: target.headers)
         }
         
-        let stubbingProvider = MoyaProvider<ExchangeEndpoint>(endpointClosure: endpointClosure, stubClosure: MoyaProvider.immediatelyStub)
+        let stubbingProvider = MoyaProvider<ExchangeEndpoint>(endpointClosure: endpointClosure,
+                                                              stubClosure: MoyaProvider.immediatelyStub)
         let service = ExchangeService.init(provider: stubbingProvider)
         
         let expect = expectation(description: "API Call")
         service.getExchangeRate(baseCurrency: eurCurrency) { result in
             switch result {
             case .success:
-                XCTFail()
+                XCTFail("Failed to get exchange rate")
             case .failure(let networkError):
                 XCTAssert(networkError == .serverInternalError)
             }
@@ -61,6 +64,5 @@ class APITests: XCTestCase {
             }
         }
     }
-
     
 }

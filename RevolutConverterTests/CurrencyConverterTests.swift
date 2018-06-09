@@ -28,27 +28,42 @@ class CurrencyConverterTests: XCTestCase {
         
         var fromCurrency = Currency(code: "B")
         var toCurrency = Currency(code: "C")
-        var convertedAmount = CurrencyConverter.convert(amount: amountToConvert, fromCurrency: fromCurrency, toCurrency: toCurrency, provider: provider)
+        var convertedAmount = CurrencyConverter.convert(amount: amountToConvert,
+                                                        fromCurrency: fromCurrency,
+                                                        toCurrency: toCurrency,
+                                                        provider: provider)
         XCTAssert(convertedAmount == 20.0)
         
         fromCurrency = Currency(code: "B")
         toCurrency = Currency(code: "B")
-        convertedAmount = CurrencyConverter.convert(amount: amountToConvert, fromCurrency: fromCurrency, toCurrency: toCurrency, provider: provider)
+        convertedAmount = CurrencyConverter.convert(amount: amountToConvert,
+                                                    fromCurrency: fromCurrency,
+                                                    toCurrency: toCurrency,
+                                                    provider: provider)
         XCTAssert(convertedAmount == 10.0)
         
         fromCurrency = Currency(code: "C")
         toCurrency = Currency(code: "A")
-        convertedAmount = CurrencyConverter.convert(amount: amountToConvert, fromCurrency: fromCurrency, toCurrency: toCurrency, provider: provider)
+        convertedAmount = CurrencyConverter.convert(amount: amountToConvert,
+                                                    fromCurrency: fromCurrency,
+                                                    toCurrency: toCurrency,
+                                                    provider: provider)
         XCTAssert(convertedAmount == 2.5)
         
         fromCurrency = Currency(code: "C")
         toCurrency = Currency(code: "D")
-        convertedAmount = CurrencyConverter.convert(amount: amountToConvert, fromCurrency: fromCurrency, toCurrency: toCurrency, provider: provider)
+        convertedAmount = CurrencyConverter.convert(amount: amountToConvert,
+                                                    fromCurrency: fromCurrency,
+                                                    toCurrency: toCurrency,
+                                                    provider: provider)
         XCTAssert(convertedAmount == 15)
         
         fromCurrency = Currency(code: "A")
         toCurrency = Currency(code: "D")
-        convertedAmount = CurrencyConverter.convert(amount: amountToConvert, fromCurrency: fromCurrency, toCurrency: toCurrency, provider: provider)
+        convertedAmount = CurrencyConverter.convert(amount: amountToConvert,
+                                                    fromCurrency: fromCurrency,
+                                                    toCurrency: toCurrency,
+                                                    provider: provider)
         XCTAssert(convertedAmount == 60)
     }
 }

@@ -12,7 +12,8 @@ import Result
 import RxSwift
 
 protocol ExchangeServiceProtocol {
-    func getExchangeRate(baseCurrency: Currency, onResult: @escaping (_ result: Result<ExchangeDTO, NetworkError> )-> Void)
+    func getExchangeRate(baseCurrency: Currency,
+                         onResult: @escaping (_ result: Result<ExchangeDTO, NetworkError> ) -> Void)
 }
 
 class ExchangeService: ExchangeServiceProtocol {
@@ -23,7 +24,8 @@ class ExchangeService: ExchangeServiceProtocol {
         exchangeProvider = provider
     }
     
-    func getExchangeRate(baseCurrency: Currency, onResult: @escaping (_ result: Result<ExchangeDTO, NetworkError> )-> Void) {
+    func getExchangeRate(baseCurrency: Currency,
+                         onResult: @escaping (_ result: Result<ExchangeDTO, NetworkError> ) -> Void) {
         let endpoint: ExchangeEndpoint = .exchangeRate(baseCurrency: baseCurrency.code)
         exchangeProvider.rx.request(endpoint).filterSuccessfulStatusCodes().subscribe(onSuccess: { response in
             do {
@@ -31,11 +33,9 @@ class ExchangeService: ExchangeServiceProtocol {
                 let decoder = JSONDecoder()
                 let exchangeData = try decoder.decode(ExchangeDTO.self, from: response.data)
                 onResult(.success(exchangeData))
-            }
-            catch MoyaError.statusCode {
+            } catch MoyaError.statusCode {
                 onResult(.failure(NetworkError.serverInternalError))
-            }
-            catch {
+            } catch {
                 onResult(.failure(NetworkError.responseFormatError))
             }
         }) { error in

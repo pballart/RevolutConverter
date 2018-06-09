@@ -15,7 +15,6 @@ class CurrencyConverterPresenterTests: XCTestCase {
     var provider: CurrencyConverterProviderStub!
     var presenter: CurrencyConverterPresenter!
     
-    
     override func setUp() {
         super.setUp()
         

@@ -29,6 +29,7 @@
 		5F2BAEDB20CAA31600B88E5F /* IsoCountryCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAED920CAA31600B88E5F /* IsoCountryCodes.swift */; };
 		5F2BAEDC20CAA31600B88E5F /* IsoCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEDA20CAA31600B88E5F /* IsoCountries.swift */; };
 		5F2BAEE020CADA2200B88E5F /* RevolutConverterStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BAEDF20CADA2200B88E5F /* RevolutConverterStubs.swift */; };
+		5FDFBDFA20CD3A04000B570C /* RevolutConverterMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDFBDF920CD3A04000B570C /* RevolutConverterMocks.swift */; };
 		5FEFFC2420CADF19001B1AC8 /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFFC2320CADF19001B1AC8 /* CurrencyConverterTests.swift */; };
 		5FEFFC2620CAE3ED001B1AC8 /* CurrencyConverterProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFFC2520CAE3ED001B1AC8 /* CurrencyConverterProviderTests.swift */; };
 		5FEFFC2820CBE389001B1AC8 /* CurrencyConverterPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFFC2720CBE389001B1AC8 /* CurrencyConverterPresenterTests.swift */; };
@@ -70,6 +71,7 @@
 		5F2BAED920CAA31600B88E5F /* IsoCountryCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsoCountryCodes.swift; sourceTree = "<group>"; };
 		5F2BAEDA20CAA31600B88E5F /* IsoCountries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsoCountries.swift; sourceTree = "<group>"; };
 		5F2BAEDF20CADA2200B88E5F /* RevolutConverterStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutConverterStubs.swift; sourceTree = "<group>"; };
+		5FDFBDF920CD3A04000B570C /* RevolutConverterMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutConverterMocks.swift; sourceTree = "<group>"; };
 		5FEFFC2320CADF19001B1AC8 /* CurrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTests.swift; sourceTree = "<group>"; };
 		5FEFFC2520CAE3ED001B1AC8 /* CurrencyConverterProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterProviderTests.swift; sourceTree = "<group>"; };
 		5FEFFC2720CBE389001B1AC8 /* CurrencyConverterPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterPresenterTests.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				5FEFFC2720CBE389001B1AC8 /* CurrencyConverterPresenterTests.swift */,
 				5F03082720C6F4DB0058181E /* APITests.swift */,
 				5F2BAEDF20CADA2200B88E5F /* RevolutConverterStubs.swift */,
+				5FDFBDF920CD3A04000B570C /* RevolutConverterMocks.swift */,
 				5F03082920C6F4DB0058181E /* Info.plist */,
 			);
 			path = RevolutConverterTests;
@@ -445,6 +448,7 @@
 				5FEFFC2820CBE389001B1AC8 /* CurrencyConverterPresenterTests.swift in Sources */,
 				5F2BAEE020CADA2200B88E5F /* RevolutConverterStubs.swift in Sources */,
 				5FEFFC2420CADF19001B1AC8 /* CurrencyConverterTests.swift in Sources */,
+				5FDFBDFA20CD3A04000B570C /* RevolutConverterMocks.swift in Sources */,
 				5F03082820C6F4DB0058181E /* APITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

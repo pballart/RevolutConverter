@@ -11,20 +11,16 @@ import Moya
 @testable import RevolutConverter
 
 class CurrencyConverterPresenterTests: XCTestCase {
-    var view: CurrencyConverterViewStub!
+    var view: CurrencyConverterViewMock!
     var provider: CurrencyConverterProviderStub!
     var presenter: CurrencyConverterPresenter!
     
     override func setUp() {
         super.setUp()
         
-        view = CurrencyConverterViewStub()
+        view = CurrencyConverterViewMock()
         provider = CurrencyConverterProviderStub()
         presenter = CurrencyConverterPresenter(provider: provider, view: view)
-        
-        let tableView = UITableView()
-        presenter.tableView = tableView
-        presenter.dataSource = ConverterDataSource(tableView: tableView, presenter: presenter)
     }
     
     override func tearDown() {
@@ -33,11 +29,8 @@ class CurrencyConverterPresenterTests: XCTestCase {
     }
     
     func testViewDidLoad() {
-        let tableView = UITableView()
-        presenter.viewDidLoad(tableView: tableView)
+        presenter.viewDidLoad()
         
-        XCTAssert(presenter.tableView == tableView)
-        XCTAssertNotNil(presenter.dataSource)
         XCTAssert(provider.result.contains("injectDelegate"))
         XCTAssert(provider.result.contains("startFetchingExchangeRates"))
     }
@@ -49,37 +42,40 @@ class CurrencyConverterPresenterTests: XCTestCase {
     
     func testDidChangeAmount() {
         let amount: Float = 1.0
-        presenter.dataSource.data = []
+        view.setViewModel([])
         
         presenter.didChange(amount: amount)
         XCTAssert(provider.result == "")
         
-        presenter.dataSource.data = [Currency(code: "A")]
+        view.setViewModel([Currency(code: "A")])
         presenter.didChange(amount: amount)
-        XCTAssert(provider.result.contains("updateCurrencies"))
+        XCTAssert(view.result.contains("setViewModel"))
+        XCTAssert(view.result.contains("updateTableViewCells"))
     }
     
     func testDidSelectRowAtIndexPath() {
         let indexPath = IndexPath(row: 0, section: 0)
-        presenter.dataSource.data = []
-        presenter.didSelectRowAt(indexPath: indexPath)
-        XCTAssert(presenter.dataSource.data!.count == 0)
         
-        presenter.dataSource.data = [Currency(code: "A"), Currency(code: "B"), Currency(code: "C")]
-        presenter.tableView.reloadData()
+        view.setViewModel([])
         presenter.didSelectRowAt(indexPath: indexPath)
-        XCTAssert(presenter.dataSource.data!.count == 3)
+        XCTAssert(view.getViewModel().count == 0)
+        
+        view.setViewModel([Currency(code: "A"), Currency(code: "B"), Currency(code: "C")])
+        presenter.didSelectRowAt(indexPath: indexPath)
+        XCTAssert(view.result.contains("setViewModel"))
+        XCTAssert(view.result.contains("moveTableViewCellsFor"))
     }
 
     func testDidReceiveNewExchangeRate() {
         let dto = ExchangeDTO(base: "EUR", rates: ["A": 1.0])
-        presenter.dataSource.data = nil
+        view.setViewModel([])
         presenter.didReceiveNewExchangeRate(rateDTO: dto)
-        XCTAssertNotNil(presenter.dataSource.data)
-        XCTAssert(presenter.dataSource.data!.count > 0)
+        XCTAssert(view.result.contains("setViewModel"))
+        XCTAssert(view.getViewModel().count > 0)
         
-        presenter.dataSource.data = [Currency(code: "P")]
+        view.setViewModel([Currency(code: "P")])
         presenter.didReceiveNewExchangeRate(rateDTO: dto)
-        XCTAssert(provider.result.contains("updateCurrencies"))
+        XCTAssert(view.result.contains("setViewModel"))
+        XCTAssert(view.result.contains("updateTableViewCells"))
     }
 }

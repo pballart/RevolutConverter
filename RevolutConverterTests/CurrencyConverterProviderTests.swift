@@ -11,7 +11,7 @@ import Moya
 @testable import RevolutConverter
 
 class CurrencyConverterProviderTests: XCTestCase {
-    var view: CurrencyConverterViewStub!
+    var view: CurrencyConverterViewMock!
     var presenter: CurrencyConverterPresenterStub!
     var exchangeService: ExchangeServiceStub!
     var provider: CurrencyConverterProvider!
@@ -21,7 +21,7 @@ class CurrencyConverterProviderTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        view = CurrencyConverterViewStub()
+        view = CurrencyConverterViewMock()
         presenter = CurrencyConverterPresenterStub()
         exchangeService = ExchangeServiceStub()
         provider = CurrencyConverterProvider(apiProvider: exchangeService)

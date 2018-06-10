@@ -11,28 +11,24 @@ import Moya
 import Result
 @testable import RevolutConverter
 
-class CurrencyConverterViewStub: UIViewController, CurrencyConverterViewProtocol {
-
-}
-
 class CurrencyConverterPresenterStub: CurrencyConverterPresenterProtocol {
     
     var result = ""
     
-    func viewDidLoad(tableView: UITableView) {
-        result = "viewDidLoad"
+    func viewDidLoad() {
+        result += "viewDidLoad"
     }
     
     func viewWillDisappear() {
-        result = "viewWillDisappear"
+        result += "viewWillDisappear"
     }
     
     func didChange(amount: Float) {
-        result = "didChangeAmount"
+        result += "didChangeAmount"
     }
     
     func didSelectRowAt(indexPath: IndexPath) {
-        result = "didSelectRowAtIndexPath"
+        result += "didSelectRowAtIndexPath"
     }
 }
 
